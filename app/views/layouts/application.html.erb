@@ -3,10 +3,32 @@
 <head>
   <title>Cinemapp</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans:700|Lobster" rel="stylesheet">
+
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<header>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-3">
+				<img src="https://a248.e.akamai.net/secure.meetupstatic.com/photos/event/1/b/b/c/600_437647100.jpeg" alt="Filmclub Logo" id="logo">
+			</div>
+			<div class="col-sm-9">
+				<h1>A few snapshots of the 
+					<a href="https://www.meetup.com/The-Arthouse-Film-Club/">Paris Arthouse Film Club</a> adventures
+				</h1>
+			</div>
+		</div>
+	</div>
+</header>
 
 <%= yield %>
 
