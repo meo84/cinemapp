@@ -42,7 +42,7 @@ h2 {
 
 /**************** Home *******************/
 
-.what, .when, .where, .who {
+.what, .what-back, .when, .where, .who {
 	height: 40vh;
 	position: relative;
 }
@@ -83,6 +83,17 @@ h2 {
 
 .what:hover {
 	background-color: #13565C;
+}
+
+img {
+	max-width: 200px;
+	max-height: 200px;
+	border-radius: 5%;
+}
+
+.what-back h3 {
+	margin: 5px;
+	color: #13747D;
 }
 
 /**************** Header *******************/
