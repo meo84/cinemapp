@@ -21,18 +21,12 @@
 			</div>
 			
 			<div class="row center">
+			<% @movies_podium.each do |movie| %>
 				<div class="col-sm-4">
-					<img src="https://a248.e.akamai.net/secure.meetupstatic.com/photos/event/b/2/9/3/600_453705715.jpeg"/>
-					<figcaption>10 filmbuffs</figcaption>
+					<img src="<%= movie.poster_url %>"/>
+					<figcaption><%= movie.title %>,<br><%= movie.events.last.attendees_nb %> filmbuffs</figcaption>
 				</div>
-				<div class="col-sm-4">
-					<img src="https://a248.e.akamai.net/secure.meetupstatic.com/photos/event/a/e/c/2/600_455204738.jpeg"/>
-					<figcaption>10 filmbuffs</figcaption>
-				</div>
-				<div class="col-sm-4">
-					<img src="https://a248.e.akamai.net/secure.meetupstatic.com/photos/event/6/1/5/1/600_454404913.jpeg"/>
-					<figcaption>10 filmbuffs</figcaption>
-				</div>
+			<% end %>
 			</div>
 		<div class="row">
 					<a href="#">View all 60 films</a>
