@@ -15,21 +15,30 @@
 			<h2>WHERE</h2>
 		</div>
 	</div>
-	<div class="col-sm-8 what-back">
-			<div class="row center">
-				<h3>Most popular films</h3>
-			</div>
-			
-			<div class="row center">
-			<% @movies_podium.each do |movie| %>
-				<div class="col-sm-4">
-					<img src="<%= movie.poster_url %>"/>
-					<figcaption><%= movie.title %>,<br><%= movie.events.last.attendees_nb %> filmbuffs</figcaption>
+	<div class="row">
+		<div class="col-sm-8 what-back">
+				<div class="row center">
+					<h3>Top 3 film turnouts</h3>
 				</div>
-			<% end %>
-			</div>
-		<div class="row">
-					<a href="#">View all 60 films</a>
+				<div class="row center">
+				<% @movies_podium.each do |movie| %>
+					<div class="col-sm-4">
+						<img src="<%= movie.poster_url %>"/>
+						<figcaption><%= movie.title %>,<br><%= movie.events.last.attendees_nb %> filmbuffs</figcaption>
+					</div>
+				<% end %>
+				</div>
+				<div class="row">
+						<a href="#">View all 60 films</a>
+				</div>			
+		</div>
+		<div class="col-sm-4 when-back">
+				<div class="row center">
+					<h3>We've seen movies from <%= @oldest_movie.year %> to <%= @latest_movie.year %></h3>
+				</div>
+				
+				<div class="row center" id="when-histogram">
+				</div>
 		</div>
 	</div>
 </div>
