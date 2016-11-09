@@ -26,6 +26,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 #secure ids with Figaro gem
 gem 'figaro'
+#create datavisualisations with D4
+gem 'd4-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
