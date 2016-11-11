@@ -1,5 +1,8 @@
 class Movie < ActiveRecord::Base
 	has_many :events, as: :activity
+	has_many :directors
+	has_many :directors_movies
+	has_many :directors, through: :directors_movies
 
 	def self.rank_by_attendance(rank)
 		ranks = Movie.all.sort_by { |movie| movie.events.last.attendees_nb }.reverse!

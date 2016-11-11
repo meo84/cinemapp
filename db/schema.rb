@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161106170227) do
+ActiveRecord::Schema.define(version: 20161111233348) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "directors", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "country"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "directors_movies", force: :cascade do |t|
+    t.integer  "movie_id"
+    t.integer  "director_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "events", force: :cascade do |t|
     t.string   "title"
