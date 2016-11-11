@@ -42,6 +42,15 @@ h2 {
 
 /**************** Home *******************/
 
+.card-back {
+	display: none;
+}
+
+.no-padding {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
 .what, .what-back, .when, .where, .who {
 	height: 40vh;
 	position: relative;
@@ -77,9 +86,7 @@ h2 {
 
 /*** What section ***/
 
-.card-back {
-	display: none;
-}
+
 .what {
 	background-color: #13747D;
 }
@@ -104,6 +111,7 @@ img {
 .when-back h3 {
 	margin: 5px;
 	color: #29221F;
+	font-family: 'Open-Sans', sans-serif;
 }
 
 .when h2 {
