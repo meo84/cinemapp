@@ -1,10 +1,8 @@
-	$('#what').toggle(function() {
-	  //hide what-front
-	  $('.what').hide();
-	  //display what-back
-	 	alert("test");
-	}, function() {
-	  //display what-front & hide what-back
-	  $('.what').show();
-	  alert("test gain");
+$(function() {
+	$('.card').click(function() {
+	  //toggle what-front
+	  $(this).children('.card-front').toggle();
+	  //toggle what-back
+	  $(this).children('.card-back').toggle();
 	});
+});
