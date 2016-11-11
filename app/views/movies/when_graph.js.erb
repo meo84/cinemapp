@@ -1,14 +1,11 @@
-'use strict';
+var graphData = <%= @nb_movies_by_step.to_json.html_safe %>;
 
-$(document).ready(function() {
-  var graphData = <%= @nb_movies_by_step.to_json.html_safe %>;
-
-  var chart = d4.charts.column()
+var chart = d4.charts.column()
   .mixout('yAxis')
 
-  d3.select('#when-graph')
-    .datum(graphData)
-    .call(chart);
-});
+d3.select('#when-graph')
+  .datum(graphData)
+  .call(chart);
+
 
 // $('.box').html(<%=  %>);
