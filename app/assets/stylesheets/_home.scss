@@ -42,21 +42,7 @@ h2 {
 
 /**************** Home *******************/
 
-.card-back {
-	display: none;
-}
-
-.no-padding {
-	padding: 0 !important;
-	margin: 0 !important;
-}
-
-#example {
-	height: 40vh;
-	width: 100vh;
-}
-
-.what, .when, .where, .who {
+.what, .what-back, .when, .where, .who {
 	height: 40vh;
 	position: relative;
 }
@@ -91,7 +77,6 @@ h2 {
 
 /*** What section ***/
 
-
 .what {
 	background-color: #13747D;
 }
@@ -109,63 +94,6 @@ img {
 .what-back h3 {
 	margin: 5px;
 	color: #13747D;
-}
-
-/*** When section ***/
-
-.when-back h3 {
-	margin: 5px;
-	color: #29221F;
-	font-family: 'Open-Sans', sans-serif;
-}
-
-.when h2 {
-	font-family: 'Open-Sans', sans-serif;
-	color: white;
-}
-
-.when h2:hover {
-	color: white;
-}
-
-/*** When section ***/
-
-.circular {
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
-}
-
-.circular:nth-of-type(1n) {
-  background-color: #13747D;
-  color: white;
-}
-
-.circular:nth-of-type(2n) {
-  background-color: #FCF7C5;
-  color: black;
-}
-
-.circular:nth-of-type(3n) {
-  background-color: #FC354C;
-  color: white;
-}
-
-.circular {
-  position: relative;
-}
-
-.circular p {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-
-.who-back div {
-  margin: 5px auto 5px auto;
-
 }
 
 /**************** Header *******************/

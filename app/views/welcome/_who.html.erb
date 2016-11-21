@@ -1,3 +1,12 @@
-<div class="col-sm-12 card-back">
-	Showing directors we've seen most movies from
+<div class="col-sm-12 card-back ">
+	<h3>Directors most watched</h3>
+
+	<div class="row who-back">
+		<% @directors_podium.each do |director| %>
+			<div class="circular">
+				<p><%= director.fullname %>, <br><%= pluralize(director.movie_nb, 'film') %>
+				</p>
+			</div>
+		<% end %>
+	</div>
 </div>

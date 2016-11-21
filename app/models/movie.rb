@@ -5,8 +5,11 @@ class Movie < ActiveRecord::Base
 	has_many :directors, through: :directors_movies
 
 	def self.rank_by_attendance(rank)
-		ranks = Movie.all.sort_by { |movie| movie.events.last.attendees_nb }.reverse!
-		return ranks[rank-1]
+		Movie.all.sort_by(&:last_event_turnout).reverse![rank-1]		
+	end
+
+	def last_event_turnout
+		events.last.attendees_nb
 	end
 
 	scope :order_by_year, -> { all.order("year") }
