@@ -30,4 +30,43 @@ class Movie < ActiveRecord::Base
       	return count_by_step
 	end
 
+	#analyse nb of movies seen in each country
+	def country_set
+		directors.first ? directors.first.country : ""
+	end
+
+	scope :count_by_country, -> (country) { where "country_set == ?", country }
+
+	def self.group_by_country
+		#color legend 
+		legend = [ {
+	      "title": "1 film",
+	      "color": "#FCF7C5"
+	    }, {
+	      "title": "2-5 films",
+	      "color": "#13747D"
+	    }, {
+	      "title": "5-10 films",
+	      "color": "#FC354C"
+	    }, {
+	      "title": "10+ films",
+	      "color": "#000000"
+	    } ]
+
+		movies_by_country = Movie.all.group_by { |movie| movie.country_set }
+		group_country = []
+		movies_by_country.keys.each do |key|
+			country_deets = {
+				"title": key,
+				"id": ISO3166::Country.find_country_by_name(key).alpha2,
+				"color": "#67b7dc",
+				"customData": movies_by_country[key].count
+			}
+			group_country << country_deets	
+		end
+		return group_country
+	end
+
+
+
 end

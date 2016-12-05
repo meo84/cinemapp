@@ -25,11 +25,13 @@
 			<%= render 'who' %>	
 		</div>
 		
-		<div class="col-sm-8 card no-padding">
-			<div class="col-sm-12 where card-front">
-				<h2>WHERE</h2>
+		<%= link_to where_graph_path, remote: true do %>
+			<div class="col-sm-8 no-padding">
+				<div class="col-sm-12 where">
+					<h2>WHERE</h2>
+				</div>
+				<%= render 'where' %>
 			</div>
-			<%= render 'where' %>
-		</div>
+		<% end %>
 	</div>
 </div>

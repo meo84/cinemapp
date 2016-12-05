@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'welcome#home'
   get '/when_graph' => 'movies#when_graph', as: 'when_graph'
+  get '/where_graph' => 'movies#where_graph', as: 'where_graph'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -13,4 +13,16 @@ class MoviesController < ApplicationController
     	end
 	end
 
+	def where_graph
+		
+		@nb_movies_by_country = Movie.group_by_country
+		respond_to do |format|
+      		format.js 
+      		format.json { render json: @nb_movies_by_country }
+      		format.html
+    	end
+
+    	puts @nb_movies_by_country
+	end
+
 end

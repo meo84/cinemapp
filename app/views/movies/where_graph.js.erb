@@ -1,0 +1,53 @@
+var movieCountAreas = <%= @nb_movies_by_country.to_json.html_safe %>;
+
+var map = AmCharts.makeChart( "chartdiv", {
+  "type": "map",
+  "theme": "light",
+  "dataProvider": {
+    "map": "worldHigh",
+    "zoomLevel": 1,
+    "zoomLongitude": 10,
+    "zoomLatitude": 52,
+    "areas": movieCountAreas
+  },
+
+  "areasSettings": {
+    "rollOverOutlineColor": "#FFFFFF",
+    "rollOverColor": "#FC354C",
+    "alpha": 0.8,
+    "unlistedAreasAlpha": 0.1,
+    "balloonText": "[[title]], [[customData]] films"
+  },
+
+
+  "legend": {
+    "width": "100%",
+    "marginRight": 27,
+    "marginLeft": 27,
+    "equalWidths": false,
+    "backgroundAlpha": 0.5,
+    "backgroundColor": "#FFFFFF",
+    "borderColor": "#ffffff",
+    "borderAlpha": 1,
+    "top": 440,
+    "left": 0,
+    "horizontalGap": 10,
+    "data": [ {
+      "title": "1 film",
+      "color": "#FCF7C5"
+    }, {
+      "title": "2-5 films",
+      "color": "#13747D"
+    }, {
+      "title": "5-10 films",
+      "color": "#FC354C"
+    }, {
+      "title": "10+ films",
+      "color": "#000000"
+    } ]
+  },
+  "export": {
+    "enabled": false
+  }
+
+} );

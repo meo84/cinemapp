@@ -31,6 +31,9 @@ gem 'd4-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# get country info in the ISO standard
+gem 'countries'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
