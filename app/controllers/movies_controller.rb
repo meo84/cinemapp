@@ -1,3 +1,5 @@
+require 'utilities'
+
 class MoviesController < ApplicationController
 
 	def when_graph
@@ -14,6 +16,8 @@ class MoviesController < ApplicationController
 	end
 
 	def where_graph
+
+		@legend_with_text = Utilities::MapLegend.new.legend_with_text()
 		
 		@nb_movies_by_country = Movie.group_by_country
 		respond_to do |format|

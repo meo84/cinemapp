@@ -1,3 +1,5 @@
+require 'utilities'
+
 class Movie < ActiveRecord::Base
 	has_many :events, as: :activity
 	has_many :directors
@@ -35,23 +37,9 @@ class Movie < ActiveRecord::Base
 		directors.first ? directors.first.country : ""
 	end
 
-	scope :count_by_country, -> (country) { where "country_set == ?", country }
+	scope :count_by_country, -> (country) { where "country_set == ?", country } 
 
 	def self.group_by_country
-		#color legend 
-		legend = [ {
-	      "title": "1 film",
-	      "color": "#FCF7C5"
-	    }, {
-	      "title": "2-5 films",
-	      "color": "#13747D"
-	    }, {
-	      "title": "5-10 films",
-	      "color": "#FC354C"
-	    }, {
-	      "title": "10+ films",
-	      "color": "#000000"
-	    } ]
 
 		movies_by_country = Movie.all.group_by { |movie| movie.country_set }
 		group_country = []
@@ -59,7 +47,7 @@ class Movie < ActiveRecord::Base
 			country_deets = {
 				"title": key,
 				"id": ISO3166::Country.find_country_by_name(key).alpha2,
-				"color": "#67b7dc",
+				"color": Utilities::MapLegend.new.country_color(movies_by_country[key].count),
 				"customData": movies_by_country[key].count
 			}
 			group_country << country_deets	
