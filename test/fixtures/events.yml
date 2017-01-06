@@ -8,7 +8,6 @@ one:
   activity_id: 1
   activity_type: MyString
   date: 2016-11-06 17:43:23
-  meetup_up: 1
 
 two:
   title: MyString
@@ -18,4 +17,3 @@ two:
   activity_id: 1
   activity_type: MyString
   date: 2016-11-06 17:43:23
-  meetup_up: 1
