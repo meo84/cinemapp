@@ -1,5 +1,4 @@
 var movieCountAreas = <%= @nb_movies_by_country.to_json.html_safe %>;
-var legend_with_text = <%= @legend_with_text.to_json.html_safe %>;
 
 var map = AmCharts.makeChart( "chartdiv", {
   "type": "map",
@@ -33,7 +32,7 @@ var map = AmCharts.makeChart( "chartdiv", {
     "top": 440,
     "left": 0,
     "horizontalGap": 10,
-    "data": legend_with_text
+    "data": <%= legend_with_text.to_json.html_safe %>
   },
   "export": {
     "enabled": false
