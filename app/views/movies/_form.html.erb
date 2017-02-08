@@ -6,6 +6,16 @@
 	<%= f.label :poster_url, "Poster URL:" %>
 	<%= f.text_field :poster_url %>
 
+	<!-- Add director -->
+	<%= link_to(new_director_path, html_options = { target: "_blank" }) do %>
+	  	<span class="glyphicon glyphicon-facetime-video" aria-hidden="true">New director</span> 
+	<% end %>
+
+	<!-- Select director(s) -->
+	<%=f.label :director_ids, "Directors" %>
+	<%= f.collection_select :director_ids, @directors, :id, :last_name, { selected: @movie.director_ids } , multiple: true, class: 'chosen' %>
+
+
 	<%= f.submit %>
 
 <% end %>
