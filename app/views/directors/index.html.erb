@@ -9,7 +9,12 @@
   	<% end %>
   	<ul>
   	  <% @directors.each do |director| %>
-        <li><%= link_to director.last_name, director_path(director) %></li>
+        <li>
+          <%= director.fullname %> 
+          <%= link_to edit_director_path(director) do %>
+            <span class="glyphicon glyphicon-edit" aria-hidden="true">
+          <% end %>    
+        </li>
   	 <% end %> <!-- end each -->
   	</ul>
 </div> <!-- end .container -->

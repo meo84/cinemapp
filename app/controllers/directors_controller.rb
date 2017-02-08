@@ -1,4 +1,6 @@
 class DirectorsController < ApplicationController
+before_action :set_director, only: [:edit, :update]
+
 
 	def who_graph
 		@directors_podium = [ Director.rank_by_movie_nb(1), Director.rank_by_movie_nb(2), Director.rank_by_movie_nb(3) ]
@@ -24,7 +26,19 @@ class DirectorsController < ApplicationController
     redirect_to action: 'index'
   end
 
+  def edit
+  end
+
+  def update
+    @director.update director_params
+    redirect_to action: 'index'
+  end
+
   private
+
+  def set_director
+    @director = Director.find params[:id]
+  end
 
   def director_params
     params.require(:director).permit(:first_name, :last_name, :country)
