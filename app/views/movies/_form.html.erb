@@ -1,0 +1,11 @@
+<%= form_for @movie do |f| %>
+	<%= f.label :title, "Title:" %>
+	<%= f.text_field :title %>
+	<%= f.label :year, "Year:" %>
+	<%= f.number_field :year, options = {step: 1, min: 1895, max: Time.now.year} %>
+	<%= f.label :poster_url, "Poster URL:" %>
+	<%= f.text_field :poster_url %>
+
+	<%= f.submit %>
+
+<% end %>
