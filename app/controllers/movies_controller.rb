@@ -1,7 +1,8 @@
 require 'utilities'
 
 class MoviesController < ApplicationController
-before_action :set_directors, only: [:new]
+before_action :set_directors, only: [:new, :edit, :update]
+before_action :set_movie, only: [:edit, :update]
 
   def when_graph
     @oldest_movie = Movie.oldest
@@ -42,10 +43,22 @@ before_action :set_directors, only: [:new]
     redirect_to action: 'index'
   end
 
+  def edit
+  end
+
+  def update
+    @movie.update movie_params
+    redirect_to action: 'index'
+  end
+
   private
 
   def movie_params
     params.require(:movie).permit(:title, :year, :poster_url, :director_ids => [])
+  end
+
+  def set_movie
+    @movie = Movie.find params[:id]
   end
 
   def set_directors
