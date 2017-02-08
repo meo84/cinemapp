@@ -27,4 +27,8 @@ class MoviesController < ApplicationController
     puts @nb_movies_by_country
   end
 
+  def index
+    @movies = Movie.all
+  end
+
 end
