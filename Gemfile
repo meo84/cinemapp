@@ -34,6 +34,9 @@ gem 'd4-rails'
 # get country info in the ISO standard
 gem 'countries'
 
+#select country info in the ISO standard
+gem 'country_select'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
