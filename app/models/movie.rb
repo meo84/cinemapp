@@ -45,8 +45,8 @@ class Movie < ActiveRecord::Base
 		group_country = []
 		movies_by_country.keys.each do |key|
 			country_deets = {
-				"title": key,
-				"id": ISO3166::Country.find_country_by_name(key).alpha2,
+				"title": ISO3166::Country.find_country_by_alpha2(key).name,
+				"id": key,
 				"color": Utilities::MapLegend.new.country_color(movies_by_country[key].count),
 				"customData": movies_by_country[key].count
 			}
