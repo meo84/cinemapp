@@ -1,0 +1,15 @@
+<div class="container-fluid">
+    <h2 class="text-center">
+      Our
+        <span class="underline">directors
+        </span>
+    </h2>
+  	<%= link_to new_director_path do %>
+  	  <p><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> New director</p>
+  	<% end %>
+  	<ul>
+  	  <% @directors.each do |director| %>
+        <li><%= link_to director.last_name, director_path(director) %></li>
+  	 <% end %> <!-- end each -->
+  	</ul>
+</div> <!-- end .container -->

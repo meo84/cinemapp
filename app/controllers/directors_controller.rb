@@ -10,4 +10,8 @@ class DirectorsController < ApplicationController
     	end
 	end
 
+	def index
+		@directors = Director.all
+	end
+
 end
