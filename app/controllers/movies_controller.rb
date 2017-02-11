@@ -2,6 +2,7 @@ require 'utilities'
 
 class MoviesController < ApplicationController
 before_action :set_directors, only: [:new, :edit, :update]
+before_action :set_events, only: [:new, :edit, :update]
 before_action :set_movie, only: [:edit, :update]
 
   def when_graph
@@ -30,7 +31,7 @@ before_action :set_movie, only: [:edit, :update]
   end
 
   def index
-    @movies = Movie.all
+    @movies = Movie.order(id: :desc)
   end
 
   def new
@@ -54,7 +55,7 @@ before_action :set_movie, only: [:edit, :update]
   private
 
   def movie_params
-    params.require(:movie).permit(:title, :year, :poster_url, :director_ids => [])
+    params.require(:movie).permit(:title, :year, :poster_url, :director_ids => [], :event_ids => [])
   end
 
   def set_movie
@@ -63,6 +64,10 @@ before_action :set_movie, only: [:edit, :update]
 
   def set_directors
     @directors = Director.order(:last_name)
+  end
+
+  def set_events
+    @events = Event.order(:id).where activity: nil
   end
 
 end
