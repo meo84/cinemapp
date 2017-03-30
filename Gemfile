@@ -37,6 +37,9 @@ gem 'countries'
 #select country info in the ISO standard
 gem 'country_select'
 
+#parse html
+gem 'nokogiri'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
