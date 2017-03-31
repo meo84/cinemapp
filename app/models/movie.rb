@@ -2,6 +2,8 @@ require 'utilities'
 
 class Movie < ActiveRecord::Base
   validates_presence_of :title
+  validates_presence_of :year
+  validates_presence_of :poster_url
 
   has_many :events, as: :activity
   has_many :directors
