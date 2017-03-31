@@ -1,9 +1,8 @@
 require 'utilities'
 
 class Movie < ActiveRecord::Base
-  validates_presence_of :title
-  validates_presence_of :year
-  validates_presence_of :poster_url
+  validates :title, :year, :poster_url, presence: true
+  validates :year, numericality: { only_integer: true, greater_than: 1900, less_than: 3000 }
 
   has_many :events, as: :activity
   has_many :directors

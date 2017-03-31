@@ -17,7 +17,10 @@ RSpec.describe Movie, type: :model do
     expect(subject).to_not be_valid
   end
 
-  it "is not valid without a year greater than 1900"
+  it "is not valid without a 4-digit year greater than 1900" do
+    subject.year = 10000
+    expect(subject).to_not be_valid
+  end
 
   it "is not valid without a poster URL" do
     subject.poster_url = nil
