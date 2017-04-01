@@ -5,7 +5,6 @@ class Movie < ActiveRecord::Base
   validates :year, numericality: { only_integer: true, greater_than: 1900, less_than: 3000 }
 
   has_many :events, as: :activity
-  has_many :directors
   has_many :directors_movies
   has_many :directors, through: :directors_movies
 
