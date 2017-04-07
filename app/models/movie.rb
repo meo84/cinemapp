@@ -8,6 +8,12 @@ class Movie < ActiveRecord::Base
   has_many :directors_movies
   has_many :directors, through: :directors_movies
 
+  scope :order_by_year, -> { all.order("year") }
+  scope :oldest, -> { order_by_year.first }
+  scope :latest, -> { order_by_year.last }
+  scope :count_by_years, -> (start_yr, step) { where "year >= ? and year < ?", start_yr, start_yr + step }
+  scope :count_by_country, -> (country) { where "country_set == ?", country }
+
   def self.rank_by_attendance(rank)
     Movie.all.sort_by(&:last_event_turnout).reverse![rank-1]
   end
@@ -15,14 +21,6 @@ class Movie < ActiveRecord::Base
   def last_event_turnout
     events.last.attendees_nb
   end
-
-  scope :order_by_year, -> { all.order("year") }
-
-  scope :oldest, -> { order_by_year.first }
-
-  scope :latest, -> { order_by_year.last }
-
-  scope :count_by_years, -> (start_yr, step) { where "year >= ? and year < ?", start_yr, start_yr + step }
 
   def self.count_by_step(start_yr,end_yr,step)
     count_by_step = []
@@ -34,12 +32,9 @@ class Movie < ActiveRecord::Base
     return count_by_step
   end
 
-  #analyse nb of movies seen in each country
   def country_set
     directors.first ? directors.first.country : ""
   end
-
-  scope :count_by_country, -> (country) { where "country_set == ?", country }
 
   def self.group_by_country
 
@@ -56,4 +51,5 @@ class Movie < ActiveRecord::Base
     end
     return group_country
   end
+
 end
