@@ -1,3 +1,5 @@
 class Event < ActiveRecord::Base
-	belongs_to :activity, polymorphic:true
+  validates :title, :description, :attendees_nb, :venue, :meetup_id, :date, presence: true
+
+  belongs_to :activity, polymorphic:true
 end
