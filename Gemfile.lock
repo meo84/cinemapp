@@ -202,10 +202,10 @@ DEPENDENCIES
   nokogiri (~> 1.6.8)
   pg
   rails (= 4.2.6)
-  rspec-rails
+  rspec-rails (~> 3.5.2)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
-  shoulda
+  shoulda (~> 3.5.0)
   spring
   turbolinks
   uglifier (>= 1.3.0)
