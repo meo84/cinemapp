@@ -38,7 +38,7 @@ gem 'countries'
 gem 'country_select'
 
 #parse html
-gem 'nokogiri'
+gem 'nokogiri', '~>1.6.8'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
