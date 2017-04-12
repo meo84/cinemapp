@@ -8,4 +8,8 @@ class Event < ActiveRecord::Base
     url_arrays.map { |url_array| url_array[0] }
   end
 
+  def first_image_url
+    image_urls.first
+  end
+
 end
