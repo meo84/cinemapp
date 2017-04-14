@@ -12,4 +12,13 @@ class Event < ActiveRecord::Base
     image_urls.first
   end
 
+  def self.summary
+    all.map do |event|
+      {
+        "id": event.id,
+        "title": event.title,
+        "first_image_url": event.first_image_url
+      }
+    end
+  end
 end
