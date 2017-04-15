@@ -1,18 +1,18 @@
 <div class="container-fluid">
-    <h2 class="text-center">
-      Our
-        <span class="underline">movies
-        </span>
-    </h2>
-  	<%= link_to new_movie_path do %>
-  	  <p><span class="glyphicon glyphicon-film" aria-hidden="true"></span> New movie</p>
-  	<% end %>
+  <h2 class="text-center">
+    Our
+    <span class="underline">movies
+    </span>
+  </h2>
+  <%= link_to new_movie_path do %>
+    <p><span class="glyphicon glyphicon-film" aria-hidden="true"></span> New movie</p>
+  <% end %>
 
-  	<% @movies.each do |movie| %>
-      <%= link_to edit_movie_path(movie) do %>
-        <img src=<%= movie.poster_url %> alt="Movie Poster">
-      <% end %>   
-  	<% end %> <!-- end each -->
+  <% @movies.each do |movie| %>
+    <%= link_to edit_movie_path(movie) do %>
+      <img src=<%= movie.poster_url %> alt="Movie Poster">
+    <% end %>
+  <% end %> <!-- end each -->
 
 </div> <!-- end .container -->
 
