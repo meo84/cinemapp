@@ -34,17 +34,37 @@ RSpec.describe Event, type: :model do
     it { should belong_to(:activity) }
   end
 
-  describe "#image_urls" do
+  context "Methods" do
 
-    let(:event) { Event.new(description: "<p><img src=\"http://photos1.meetupstatic.com/photos/event/a/4/7/b/600_458082107.jpeg\" /></p> <p>It's Thomas Vinterberg's latest and I'm excited! Come see it with me at the Luminor near Hotel de Ville. It's on at 7pm on Tues, so let's meet outside around 6.45pm, get tickets etc. And go for a drink after?</p> <p>More details:</p> <p><a href=\"http://www.luminor-hoteldeville.com/film/la-communaute-2017/\" class=\"linkified\">http://www.luminor-hoteldeville.com/film/la-communaute-2017/</a></p>") }
+    let(:event) { FactoryGirl.create :event }
+    let(:other_event) { FactoryGirl.create :event, title: "Other movie outing" }
 
-    it "gets the links of the images included in the event description" do
-      assert_equal ["http://photos1.meetupstatic.com/photos/event/a/4/7/b/600_458082107.jpeg"], event.image_urls
+    describe "#image_urls" do
+      it "gets the links of the images included in the event description" do
+        expect(event.image_urls).to eq ["http://photos1.meetupstatic.com/photos/event/a/4/7/b/600_458082107.jpeg"]
+      end
     end
 
-    it "gets the link of the first image included in the event description" do
-      assert_equal "http://photos1.meetupstatic.com/photos/event/a/4/7/b/600_458082107.jpeg", event.first_image_url
+    describe "#first_image_url" do
+      it "gets the link of the first image included in the event description" do
+        expect(event.first_image_url).to eq "http://photos1.meetupstatic.com/photos/event/a/4/7/b/600_458082107.jpeg"
+      end
+    end
+
+    describe "#preview" do
+      it "returns id, title and first image link of given event" do
+        preview = { "id": event.id, "title": event.title, "first_image_url": event.first_image_url }
+        expect(event.preview).to eq preview
+      end
+    end
+
+    describe ".summary" do
+      it "returns array of all event previews" do
+        expect(Event.summary.count).to eq Event.count
+        expect(Event.summary[0]).to eq Event.all[0].preview
+      end
     end
 
   end
+
 end

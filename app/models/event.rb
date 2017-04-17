@@ -13,12 +13,14 @@ class Event < ActiveRecord::Base
   end
 
   def self.summary
-    all.map do |event|
-      {
-        "id": event.id,
-        "title": event.title,
-        "first_image_url": event.first_image_url
-      }
-    end
+    all.map { |event| event.preview }
+  end
+
+  def preview
+    {
+      "id": id,
+      "title": title,
+      "first_image_url": first_image_url
+    }
   end
 end
