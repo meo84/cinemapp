@@ -38,7 +38,7 @@ gem 'countries'
 gem 'country_select'
 
 #parse html
-gem 'nokogiri', '~>1.6.8'
+gem 'nokogiri'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -49,9 +49,9 @@ gem 'nokogiri', '~>1.6.8'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem 'rspec-rails', '~>3.5.2'
-  gem 'shoulda', '~>3.5.0'
-  gem 'factory_girl_rails', '~>4.8.0'
+  gem 'rspec-rails'
+  gem 'shoulda'
+  gem 'factory_girl_rails'
 end
 
 group :development do
