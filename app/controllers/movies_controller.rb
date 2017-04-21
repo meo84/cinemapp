@@ -36,6 +36,10 @@ before_action :set_movie, only: [:edit, :update]
 
   def new
     @movie = Movie.new
+    respond_to do |format|
+      format.json { render json: @events.summary }
+      format.html
+    end
   end
 
   def create

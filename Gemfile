@@ -37,6 +37,9 @@ gem 'countries'
 #select country info in the ISO standard
 gem 'country_select'
 
+#parse html
+gem 'nokogiri'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -48,6 +51,7 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
   gem 'shoulda'
+  gem 'factory_girl_rails'
 end
 
 group :development do
