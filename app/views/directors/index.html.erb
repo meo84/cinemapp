@@ -1,20 +1,26 @@
 <div class="container-fluid">
-    <h2 class="text-center">
-      Our
-        <span class="underline">directors
-        </span>
-    </h2>
-  	<%= link_to new_director_path do %>
-  	  <p><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> New director</p>
-  	<% end %>
-  	<ul>
-  	  <% @directors.each do |director| %>
-        <li>
-          <%= director.fullname %> 
-          <%= link_to edit_director_path(director) do %>
-            <span class="glyphicon glyphicon-edit" aria-hidden="true">
-          <% end %>    
+  <h2 class="text-center">
+    Our <span class="underline">directors</span>
+  </h2>
+  <% if authorized? %>
+    <%= link_to new_director_path do %>
+      <p><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> New director</p>
+    <% end %>
+  <% end %>
+  <ul>
+    <% @directors.each do |director| %>
+      <li>
+      <%= director.fullname %>
+      <% if authorized? %>
+        <%= link_to edit_director_path(director) do %>
+          <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        <% end %>
+      <% else %>
+        <%= link_to director_path(director) do %>
+          <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+        <% end %>
+      <% end %>
         </li>
-  	 <% end %> <!-- end each -->
-  	</ul>
-</div> <!-- end .container -->
+      <% end %> <!-- end each -->
+    </ul>
+  </div> <!-- end .container -->

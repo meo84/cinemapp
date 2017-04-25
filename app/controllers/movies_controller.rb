@@ -4,6 +4,8 @@ class MoviesController < ApplicationController
 before_action :set_directors, only: [:new, :edit, :update]
 before_action :set_events, only: [:new, :edit, :update]
 before_action :set_movie, only: [:edit, :update]
+before_action :logged_in_user, only: [:new, :create, :edit, :update]
+before_action :correct_user, only: [:new, :create, :edit, :update]
 
   def when_graph
     @oldest_movie = Movie.oldest
