@@ -1,0 +1,19 @@
+<header>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3">
+      <img src="https://a248.e.akamai.net/secure.meetupstatic.com/photos/event/1/b/b/c/600_437647100.jpeg" alt="Filmclub Logo" id="logo">
+    </div>
+    <div class="col-sm-6">
+      <h1>A few snapshots of the 
+        <a href="https://www.meetup.com/The-Arthouse-Film-Club/">Paris Arthouse Film Club</a> adventures
+      </h1>
+    </div>
+    <div class="col-sm-3">
+      <% if logged_in? %>
+        <%= link_to "Log out", logout_path, method: "delete" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+</header>
