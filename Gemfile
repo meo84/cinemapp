@@ -40,6 +40,9 @@ gem 'country_select'
 #parse html
 gem 'nokogiri'
 
+#encode passwords
+gem 'bcrypt'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
