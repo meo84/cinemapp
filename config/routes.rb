@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/new'
+
   root 'welcome#home'
   get '/when_graph' => 'movies#when_graph', as: 'when_graph'
   get '/where_graph' => 'movies#where_graph', as: 'where_graph'
