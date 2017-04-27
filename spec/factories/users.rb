@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :user do
-    name "MyNewUser"
+    name "my_new_user"
   end
 end
