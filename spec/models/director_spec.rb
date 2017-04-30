@@ -22,5 +22,27 @@ RSpec.describe Director, type: :model do
 
   end
 
+  context "Methods" do
+
+    let!(:gold_director) do
+      FactoryGirl.create :director_with_movies, movies_count: 3
+    end
+    let!(:silver_director) do
+      FactoryGirl.create :director_with_movies, movies_count: 2
+    end
+    let!(:bronze_director) do
+      FactoryGirl.create :director_with_movies, movies_count: 1
+    end
+    let!(:other_director) do
+      FactoryGirl.create :director
+    end
+
+    describe ".most_watched" do
+      it "returns array of three directors most watched by the group" do
+        expect(Director.most_watched(3)).to eq [gold_director, silver_director, bronze_director]
+      end
+    end
+
+  end
 end
 

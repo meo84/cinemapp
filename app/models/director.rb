@@ -6,7 +6,11 @@ class Director < ActiveRecord::Base
   has_many :movies, through: :directors_movies
 
   def self.rank_by_movie_nb(rank)
-    Director.all.sort_by(&:movie_nb).reverse![rank-1]
+    all.sort_by(&:movie_nb).reverse![rank-1]
+  end
+
+  def self.most_watched(number)
+    Array.new(number) { |index| rank_by_movie_nb(index + 1) }
   end
 
   def movie_nb
