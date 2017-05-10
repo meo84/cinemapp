@@ -19,6 +19,7 @@ class Movie < ActiveRecord::Base
   end
 
   def self.most_attended(number)
+    return [] if all.count == 0
     Array.new(number) { |index| rank_by_attendance(index + 1) }
   end
 

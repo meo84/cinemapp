@@ -39,8 +39,14 @@ RSpec.describe Movie, type: :model do
     end
 
     describe ".most_attended" do
+
       it "returns array of three movies with most group participants" do
         expect(Movie.most_attended(3)).to eq [gold_movie, silver_movie, bronze_movie]
+      end
+
+      it "returns empty array if there are no movies in the database" do
+        Movie.delete_all
+        expect(Movie.most_attended(3)).to eq []
       end
     end
 
