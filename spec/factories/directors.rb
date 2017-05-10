@@ -10,7 +10,7 @@ FactoryGirl.define do
       end
 
       after(:create) do |director, evaluator|
-        create_list(:movie, evaluator.movies_count, directors: [ director ])
+        create_list(:movie_with_event, evaluator.movies_count, directors: [ director ])
       end
     end
   end

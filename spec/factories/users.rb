@@ -1,5 +1,9 @@
 FactoryGirl.define do
   factory :user do
-    name "my_new_user"
+    name "simple_user"
+
+      trait :admin do
+        admin true
+      end
   end
 end
