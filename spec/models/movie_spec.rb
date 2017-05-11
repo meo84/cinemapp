@@ -1,5 +1,14 @@
 require 'rails_helper'
 
+RSpec.configure do |config|
+  config.before(:example, :seed_data) do
+    @gold_movie = FactoryGirl.create :movie_with_event, attendees_count: 20
+    @silver_movie = FactoryGirl.create :movie_with_event, attendees_count: 15
+    @bronze_movie = FactoryGirl.create :movie_with_event, attendees_count: 10
+    @other_movie = FactoryGirl.create :movie_with_event, attendees_count: 5
+  end
+end
+
 RSpec.describe Movie, type: :model do
 
   describe "Validations" do
@@ -25,27 +34,13 @@ RSpec.describe Movie, type: :model do
 
   context "Methods" do
 
-    let!(:gold_movie) do
-      FactoryGirl.create :movie_with_event, attendees_count: 20
-    end
-    let!(:silver_movie) do
-      FactoryGirl.create :movie_with_event, attendees_count: 15
-    end
-    let!(:bronze_movie) do
-      FactoryGirl.create :movie_with_event, attendees_count: 10
-    end
-    let!(:other_movie) do
-      FactoryGirl.create :movie_with_event, attendees_count: 5
-    end
-
     describe ".most_attended" do
 
-      it "returns array of three movies with most group participants" do
-        expect(Movie.most_attended(3)).to eq [gold_movie, silver_movie, bronze_movie]
+      it "returns array of three movies with most group participants", :seed_data do
+        expect(Movie.most_attended(3)).to eq [@gold_movie, @silver_movie, @bronze_movie]
       end
 
       it "returns empty array if there are no movies in the database" do
-        Movie.delete_all
         expect(Movie.most_attended(3)).to eq []
       end
     end
