@@ -40,6 +40,9 @@ gem 'country_select'
 #parse html
 gem 'nokogiri'
 
+#encode passwords
+gem 'bcrypt'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -52,6 +55,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda'
   gem 'factory_girl_rails'
+  gem 'capybara'
 end
 
 group :development do

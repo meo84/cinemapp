@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
+  get 'users/new'
+
   root 'welcome#home'
   get '/when_graph' => 'movies#when_graph', as: 'when_graph'
   get '/where_graph' => 'movies#where_graph', as: 'where_graph'
   resources :directors, :movies
+
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

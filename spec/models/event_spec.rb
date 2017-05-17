@@ -36,8 +36,8 @@ RSpec.describe Event, type: :model do
 
   context "Methods" do
 
-    let(:event) { FactoryGirl.create :event }
-    let(:other_event) { FactoryGirl.create :event, title: "Other movie outing" }
+    let!(:event) { FactoryGirl.create :event }
+    let!(:other_event) { FactoryGirl.create :event, title: "Other movie outing" }
 
     describe "#image_urls" do
       it "gets the links of the images included in the event description" do

@@ -4,12 +4,14 @@
     <span class="underline">movies
     </span>
   </h2>
-  <%= link_to new_movie_path do %>
-    <p><span class="glyphicon glyphicon-film" aria-hidden="true"></span> New movie</p>
+  <% if authorized? %>
+    <%= link_to new_movie_path do %>
+      <p><span class="glyphicon glyphicon-film" aria-hidden="true"></span> New movie</p>
+    <% end %>
   <% end %>
 
   <% @movies.each do |movie| %>
-    <%= link_to edit_movie_path(movie) do %>
+    <%= link_to (authorized? ? edit_movie_path(movie) : movie_path(movie) ) do %>
       <img src=<%= movie.poster_url %> alt="Movie Poster">
     <% end %>
   <% end %> <!-- end each -->

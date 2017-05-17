@@ -15,7 +15,12 @@ class Movie < ActiveRecord::Base
   scope :count_by_country, -> (country) { where "country_set == ?", country }
 
   def self.rank_by_attendance(rank)
-    Movie.all.sort_by(&:last_event_turnout).reverse![rank-1]
+    all.sort_by(&:last_event_turnout).reverse![rank-1]
+  end
+
+  def self.most_attended(number)
+    size = [all.count, number].min
+    Array.new(size) { |index| rank_by_attendance(index + 1) }
   end
 
   def last_event_turnout
@@ -25,7 +30,7 @@ class Movie < ActiveRecord::Base
   def self.count_by_step(start_yr,end_yr,step)
     count_by_step = []
     (start_yr .. end_yr).step(step) do |yr|
-      movie_count = Movie.count_by_years(yr,step).size
+      movie_count = count_by_years(yr,step).size
       coordinates = { x: yr.to_s + 's', y: movie_count }
       count_by_step.push coordinates
     end
@@ -38,7 +43,7 @@ class Movie < ActiveRecord::Base
 
   def self.group_by_country
 
-    movies_by_country = Movie.all.group_by { |movie| movie.country_set }
+    movies_by_country = all.group_by { |movie| movie.country_set }
     group_country = []
     movies_by_country.keys.each do |key|
       country_deets = {
