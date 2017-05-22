@@ -10,7 +10,7 @@ FactoryGirl.define do
       end
 
       after(:create) do |movie, evaluator|
-        create :event, attendees_nb: evaluator.attendees_count, activity: movie
+        create(:event, attendees_nb: evaluator.attendees_count, activity: movie)
       end
     end
   end
