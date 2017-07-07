@@ -1,134 +1,131 @@
-/*** Fonts and colours ***/
-body a {
-	font-family: 'Lobster', cursive;
-	color: #0ABFBC;
+.home {
+  display: flex;
+  flex-direction: column;
+  min-height: 80%;
+  padding: 0;
+  margin: 0;
 }
 
-body a:hover {
-	color: #179e98;
+.home__row {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-h1, h2, h3 {
-	font-family: 'Open-Sans', sans-serif;
-	text-align: center;
-	color: #29221F;
-}
-
-p, figcaption {
-	font-family: 'Lato', sans-serif;
-	text-align: center;
-}
-
-.center {
-	text-align: center;
-}
-
-/**************** Body *******************/
-
-///div {
-///	border: solid 1px black;
-///}
-
-container {
-	background-color: #29221F;
-}
-
-#home h2 {
-	position: absolute;
-  	top: 50%;
-  	left: 50%;
-  	transform: translateY(-50%, -50%);
-}
-
-/**************** Home *******************/
-
-.card-back {
-	display: none;
+.home__card {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
 }
 
 .no-padding {
-	padding: 0 !important;
-	margin: 0 !important;
+  padding: 0 !important;
 }
 
-#example {
-	height: 40vh;
-	width: 100vh;
+.twice-size {
+  flex: 2;
 }
 
-.what, .when, .where, .who {
-	height: 40vh;
-	position: relative;
+.once-size {
+  flex: 1;
+}
+@media all and (max-width: 800px) {
+  .home__row {
+    flex-direction: column;
+  }
+
+  .home__card--map {
+    display: none;
+  }
 }
 
-.what, .when, .where {
-	color: white;
+.card__front {
+  color: white;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
 }
 
-.when {
-	background-color: #29221F;
+.blueish {
+  background-color: #13747D;
 }
 
-.who {
-	background-color: #FCF7C5;
+.blueish:hover {
+  background-color: #13565C;
 }
 
-.where {
-	background-color: #FC354C;
+.blackish {
+  background-color: #29221F;
 }
 
-.when:hover {
-	background-color: #1C1815;
+.blackish:hover {
+  background-color: #1C1815;
 }
 
-.who:hover {
-	background-color: #DBD7A2;
+.blackish h2, .pinkish h2 {
+  font-family: 'Open-Sans', sans-serif;
+  color: white;
 }
 
-.where:hover {
-	background-color: #D91636;
+.yellowish {
+  background-color: #FCF7C5;
 }
 
-/*** What section ***/
-
-
-.what {
-	background-color: #13747D;
+.yellowish:hover {
+  background-color: #DBD7A2;
 }
 
-.what:hover {
-	background-color: #13565C;
+.yellowish h2 {
+  color: #29221F;
 }
 
-img {
-	max-width: 200px;
-	max-height: 200px;
-	border-radius: 5%;
+.pinkish {
+  background-color: #FC354C;
 }
 
-.what-back h3 {
-	margin: 5px;
-	color: #13747D;
+.pinkish:hover {
+  background-color: #D91636;
 }
 
-/*** When section ***/
-
-.when-back h3 {
-	margin: 5px;
-	color: #29221F;
-	font-family: 'Open-Sans', sans-serif;
+.card__back {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  display: none;
+  padding: 10px;
 }
 
-.when h2 {
-	font-family: 'Open-Sans', sans-serif;
-	color: white;
+.top-border {
+  border-top: thin solid #d3d3d3;
 }
 
-.when h2:hover {
-	color: white;
+.back__row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 5px;
 }
 
-/*** When section ***/
+.padding {
+  padding: 15px;
+}
+
+/*** Who section ***/
+
+.back__director {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.back__director p {
+  margin: 0;
+}
 
 .circular {
   height: 100px;
@@ -150,43 +147,11 @@ img {
   background-color: #FC354C;
   color: white;
 }
+ /* where section */
 
-.circular {
-  position: relative;
+#map {
+  height: 100%;
 }
 
-.circular p {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-
-.who-back div {
-  margin: 5px auto 5px auto;
-
-}
-
-/*** Where section ***/
-
-#chartdiv {
-  width: 100%;
-  height: 500px;
-}	
-
-/**************** Header *******************/
-
-header img {
-  max-width: 60%;
-  border-radius: 50%;
-  overflow: hidden;
-  /*border: 1px solid #E8DDCB;*/
-  max-height: 20%;
-}
-
-header {
-	padding: 20px;
-	background-color: white;
-	margin: 0px;
+.amcharts-main-div {
 }

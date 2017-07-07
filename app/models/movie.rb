@@ -31,7 +31,7 @@ class Movie < ActiveRecord::Base
     count_by_step = []
     (start_yr .. end_yr).step(step) do |yr|
       movie_count = count_by_years(yr,step).size
-      coordinates = { x: yr.to_s + 's', y: movie_count }
+      coordinates = { y: yr.to_s + 's', x: movie_count }
       count_by_step.push coordinates
     end
     return count_by_step

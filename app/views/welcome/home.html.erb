@@ -1,37 +1,30 @@
-<div class="container-fluid" id="home">
-  <div class="row">
-    <div class="col-sm-8 card no-padding">
-      <div class="col-sm-12 what card-front">
+<div class="home">
+  <div class="home__row">
+    <div class="home__card no-padding twice-size">
+      <div class="card__front blueish">
         <h2>WHAT</h2>
       </div>
       <%= render 'what' %>
     </div>
-    <%= link_to when_graph_path, remote: true do %>
-      <div class="col-sm-4 card no-padding">
-        <div class="col-sm-12 when card-front" id="when">
-
-          <h2>WHEN</h2>
-
-        </div>
-        <%= render 'when' %>
+    <%= link_to when_graph_path, remote: true, class: "home__card no-padding once-size discrete-link" do %>
+      <div class="card__front blackish">
+        <h2>WHEN</h2>
       </div>
+      <%= render 'when' %>
     <% end %>
   </div>
-  <div class="row">
-    <div class="col-sm-4 card no-padding">
-      <div class="col-sm-12 who card-front">
+  <div class="home__row">
+    <div class="home__card no-padding once-size">
+      <div class="card__front yellowish">
         <h2>WHO</h2>
       </div>
       <%= render 'who' %>
     </div>
-
-    <%= link_to where_graph_path, remote: true do %>
-      <div class="col-sm-8 no-padding">
-        <div class="col-sm-12 where">
-          <h2>WHERE</h2>
-        </div>
-        <%= render 'where' %>
+    <%= link_to where_graph_path, remote: true, class: "home__card no-padding twice-size discrete-link home__card--map" do %>
+      <div class="card__front pinkish">
+        <h2>WHERE</h2>
       </div>
+      <%= render 'where' %>
     <% end %>
   </div>
 </div>
