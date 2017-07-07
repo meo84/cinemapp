@@ -1,14 +1,11 @@
 $(function() {
-  $('.card').click(function() {
-    //toggle what-front
-    $(this).children('.card-front').toggle();
-    //toggle what-back
-    $(this).children('.card-back').toggle();
+  $('.home__card').click(function() {
+    $(this).children('.card__front').toggle();
+    var cardBack = $(this).children('.card__back');
+    if(cardBack.css('display') == 'none') {
+      cardBack.css('display', 'flex');
+    } else {
+      cardBack.css('display', 'none');
+    }
   });
-
-  $('.where').click(function() {
-    $(this).hide();
-    $('#chartdiv').show();
-  });
-
 });

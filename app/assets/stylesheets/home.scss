@@ -1,134 +1,131 @@
-/*** Fonts and colours ***/
-body a {
-  font-family: 'Lobster', cursive;
-  color: #0ABFBC;
+.home {
+  display: flex;
+  flex-direction: column;
+  min-height: 80%;
+  padding: 0;
+  margin: 0;
 }
 
-body a:hover {
-  color: #179e98;
+.home__row {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-h1, h2, h3 {
-  font-family: 'Open-Sans', sans-serif;
-  text-align: center;
-  color: #29221F;
-}
-
-p, figcaption {
-  font-family: 'Lato', sans-serif;
-  text-align: center;
-}
-
-.center {
-  text-align: center;
-}
-
-/**************** Body *******************/
-
-///div {
-///	border: solid 1px black;
-///}
-
-container {
-  background-color: #29221F;
-}
-
-#home h2 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateY(-50%, -50%);
-}
-
-/**************** Home *******************/
-
-.card-back {
-  display: none;
+.home__card {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
 }
 
 .no-padding {
   padding: 0 !important;
-  margin: 0 !important;
 }
 
-#example {
-  height: 40vh;
-  width: 100vh;
+.twice-size {
+  flex: 2;
 }
 
-.what, .when, .where, .who {
-  height: 40vh;
-  position: relative;
+.once-size {
+  flex: 1;
+}
+@media all and (max-width: 800px) {
+  .home__row {
+    flex-direction: column;
+  }
+
+  .home__card--map {
+    display: none;
+  }
 }
 
-.what, .when, .where {
+.card__front {
   color: white;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
 }
 
-.when {
-  background-color: #29221F;
-}
-
-.who {
-  background-color: #FCF7C5;
-}
-
-.where {
-  background-color: #FC354C;
-}
-
-.when:hover {
-  background-color: #1C1815;
-}
-
-.who:hover {
-  background-color: #DBD7A2;
-}
-
-.where:hover {
-  background-color: #D91636;
-}
-
-/*** What section ***/
-
-
-.what {
+.blueish {
   background-color: #13747D;
 }
 
-.what:hover {
+.blueish:hover {
   background-color: #13565C;
 }
 
-img {
-  max-width: 200px;
-  max-height: 200px;
-  border-radius: 5%;
+.blackish {
+  background-color: #29221F;
 }
 
-.what-back h3 {
-  margin: 5px;
-  color: #13747D;
+.blackish:hover {
+  background-color: #1C1815;
 }
 
-/*** When section ***/
+.blackish h2, .pinkish h2 {
+  font-family: 'Open-Sans', sans-serif;
+  color: white;
+}
 
-.when-back h3 {
-  margin: 5px;
+.yellowish {
+  background-color: #FCF7C5;
+}
+
+.yellowish:hover {
+  background-color: #DBD7A2;
+}
+
+.yellowish h2 {
   color: #29221F;
-  font-family: 'Open-Sans', sans-serif;
 }
 
-.when h2 {
-  font-family: 'Open-Sans', sans-serif;
-  color: white;
+.pinkish {
+  background-color: #FC354C;
 }
 
-.when h2:hover {
-  color: white;
+.pinkish:hover {
+  background-color: #D91636;
 }
 
-/*** When section ***/
+.card__back {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  display: none;
+  padding: 10px;
+}
+
+.top-border {
+  border-top: thin solid #d3d3d3;
+}
+
+.back__row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 5px;
+}
+
+.padding {
+  padding: 15px;
+}
+
+/*** Who section ***/
+
+.back__director {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.back__director p {
+  margin: 0;
+}
 
 .circular {
   height: 100px;
@@ -150,27 +147,11 @@ img {
   background-color: #FC354C;
   color: white;
 }
+ /* where section */
 
-.circular {
-  position: relative;
+#map {
+  height: 100%;
 }
 
-.circular p {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-
-.who-back div {
-  margin: 5px auto 5px auto;
-
-}
-
-/*** Where section ***/
-
-#chartdiv {
-  width: 100%;
-  height: 500px;
+.amcharts-main-div {
 }

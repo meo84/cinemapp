@@ -1,14 +1,16 @@
-<div class="col-sm-12 what-back card-back">
-  <h3>Top 3 film turnouts</h3>
-  <div class="row">
+<div class="card__back top-border">
+  <div class="back__row">
+    <h3>The films with the most participants</h3>
+  </div>
+  <div class="back__row">
     <% @movies_podium.each do |movie| %>
-      <div class="col-sm-4 center">
-        <img src="<%= movie.poster_url %>"/>
-        <figcaption><%= movie.title %>,<br><%= movie.events.last.attendees_nb %> filmbuffs</figcaption>
+      <div class="center padding">
+        <img class="img--vignette" src="<%= movie.poster_url %>"/>
+        <figcaption class="back__text"><%= movie.title %>,<br><%= movie.events.last.attendees_nb %> filmbuffs</figcaption>
       </div>
     <% end %>
   </div>
-  <div class="row">
-    <a href="#">View all 60 films</a>
+  <div class="back__row">
+    <p class="back__text"><%= link_to 'View all films', movies_path %></p>
   </div>
 </div>
