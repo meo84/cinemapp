@@ -8,4 +8,8 @@ $(function() {
       cardBack.css('display', 'none');
     }
   });
+  $('.home__card--map').click(function() {
+    $(this).children('.card__back').css('display', 'flex');
+    $(this).children('.card__front').hide();
+  });
 });

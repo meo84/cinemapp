@@ -49,7 +49,7 @@ class Movie < ActiveRecord::Base
       country_deets = {
         "title": ISO3166::Country.find_country_by_alpha2(key).name,
         "id": key,
-        "color": Utilities::MapLegend.new.country_color(movies_by_country[key].count),
+        "color": Utilities::MapLegend.country_color(movies_by_country[key].count),
         "customData": movies_by_country[key].count
       }
       group_country << country_deets

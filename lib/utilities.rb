@@ -1,6 +1,6 @@
 module Utilities
   class MapLegend
-    def legend
+    def self.legend
       {
         0..0 => "grey",
         1..1 => "#FCF7C5",
@@ -10,8 +10,8 @@ module Utilities
       }
     end
 
-    def country_color(nb_films)
-      legend.select { |key| key === nb_films }.values.first 
+    def self.country_color(nb_films)
+      legend.select { |key| key === nb_films }.values.first
     end
   end
 end
