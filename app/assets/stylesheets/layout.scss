@@ -46,19 +46,22 @@ header {
 }
 
 .header__img {
-  max-width: 60%;
+  max-width: 20%;
   border-radius: 50%;
   overflow: hidden;
-  max-height: 20%;
 }
 
-@media all and (max-width: 800px) {
+@media (min-width: 576px) {
   .header__img {
-    max-width: 20%;
+    max-width: 60%;
   }
 }
 
 .header__logout {
   text-align: right;
+}
+
+header h1 {
+  font-size: 4vw;
 }
 
