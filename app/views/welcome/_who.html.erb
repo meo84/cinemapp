@@ -6,8 +6,10 @@
   <div class="back__row">
     <% @directors_podium.each do |director| %>
       <div class="back__director circular">
-        <p><%= director.fullname %></p>
-        <p><%= pluralize(director.movie_nb, 'film') %></p>
+        <%= link_to director_path(director), class: 'discrete-link' do %>
+          <p><%= director.fullname %></p>
+          <p><%= pluralize(director.movie_nb, 'film') %></p>
+        <% end %>
       </div>
     <% end %>
   </div>

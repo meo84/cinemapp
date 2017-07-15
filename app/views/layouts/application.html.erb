@@ -17,13 +17,14 @@
   </head>
   <body>
 
-    <%= render 'layouts/header' %>
+    <div class='container-fluid body__content'>
+      <%= render 'layouts/header' %>
 
-    <% flash.each do |name, message| %>
-      <%= content_tag :div, message, class: "alert alert-info" %>
-    <% end %>
+      <% flash.each do |name, message| %>
+        <%= content_tag :div, message, class: "alert alert-info" %>
+      <% end %>
 
-    <%= yield %>
-
+      <%= yield %>
+    </div>
   </body>
 </html>

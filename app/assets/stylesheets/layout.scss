@@ -1,8 +1,9 @@
 /* -----------------------Body--------------------- */
-html, body {
+html, body, .body__content {
   height: 100%;
   margin: 0;
 }
+
 body a {
   font-family: 'Lobster', cursive;
   color: #0ABFBC;
@@ -23,7 +24,7 @@ h1, h2, h3 {
   color: #29221F;
 }
 
-p {
+.body-font, p {
   font-family: 'Lato', sans-serif;
   text-align: center;
 }
@@ -37,12 +38,20 @@ p {
   max-height: 200px;
   border-radius: 5%;
 }
+
+.top-border {
+  border-top: thin solid #d3d3d3;
+}
+
+.padded {
+  padding: 10px;
+}
+
 /* -----------------------Header-------------------- */
 header {
   padding: 20px;
   background-color: white;
   margin: 0px;
-  min-height: 20%;
 }
 
 .header__img {

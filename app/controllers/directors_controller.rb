@@ -1,5 +1,5 @@
 class DirectorsController < ApplicationController
-  before_action :set_director, only: [:edit, :update]
+  before_action :set_director, only: [:edit, :update, :show]
   before_action :logged_in_user, only: [:new, :create, :edit, :update]
   before_action :correct_user, only: [:new, :create, :edit, :update]
 
@@ -33,6 +33,9 @@ class DirectorsController < ApplicationController
   def update
     @director.update director_params
     redirect_to action: 'index'
+  end
+
+  def show
   end
 
   private

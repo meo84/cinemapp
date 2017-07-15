@@ -98,10 +98,6 @@
   padding: 10px;
 }
 
-.top-border {
-  border-top: thin solid #d3d3d3;
-}
-
 .back__row {
   display: flex;
   flex-direction: row;
@@ -138,16 +134,29 @@
   color: white;
 }
 
+.circular:nth-of-type(1n) a {
+  color: white !important;
+}
+
 .circular:nth-of-type(2n) {
   background-color: #FCF7C5;
   color: black;
+}
+
+.circular:nth-of-type(2n) a {
+  color: black !important;
 }
 
 .circular:nth-of-type(3n) {
   background-color: #FC354C;
   color: white;
 }
- /* where section */
+
+.circular:nth-of-type(3n) a {
+  color: white !important;
+}
+
+/* where section */
 
 #map {
   height: 100%;

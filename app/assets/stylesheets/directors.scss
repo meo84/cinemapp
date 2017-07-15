@@ -1,0 +1,39 @@
+.directors {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 80%;
+}
+
+.director {
+  margin-left: 0;
+  margin-right: 0;
+  min-height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.director__movies {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.director__movie {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+}
+
+.director__movie img {
+  margin-bottom: 5px;
+}
+
+.director__movie i {
+  font-size: 0.8rem;
+}
+

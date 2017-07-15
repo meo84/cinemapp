@@ -1,0 +1,15 @@
+<div class='director top-border padded'>
+  <h2 class='text-center'>
+    <%= @director.fullname %>
+  </h2>
+  <div class='director__movies'>
+    <% @director.movies.each do |movie| %>
+      <div class='director__movie'>
+        <img class='img--vignette' src=<%= movie.poster_url %> alt='Movie Poster'>
+        <span><%= movie.title %></span>
+        <i><%= movie.last_event_turnout %> participants</i>
+      </div>
+    <% end %>
+  </div>
+  <p><%= link_to '<< Back to all directors', directors_path %></p>
+</div>

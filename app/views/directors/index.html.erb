@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="directors top-border padded">
   <h2 class="text-center">
     Our <span class="underline">directors</span>
   </h2>
@@ -9,18 +9,15 @@
   <% end %>
   <ul>
     <% @directors.each do |director| %>
-      <li>
-      <%= director.fullname %>
-      <% if authorized? %>
-        <%= link_to edit_director_path(director) do %>
-          <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+      <span>
+        <%= link_to director.fullname, director_path(director), class: 'discrete-link body-font' %>
+        <% if authorized? %>
+          <%= link_to edit_director_path(director) do %>
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+          <% end %>
         <% end %>
-      <% else %>
-        <%= link_to director_path(director) do %>
-          <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-        <% end %>
-      <% end %>
-        </li>
-      <% end %> <!-- end each -->
-    </ul>
-  </div> <!-- end .container -->
+        ·</span>
+    <% end %> <!-- end each -->
+  </ul>
+  <p><%= link_to '<< Back to homepage', root_path %></p>
+</div> <!-- end .container -->
