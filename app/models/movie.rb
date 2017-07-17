@@ -57,4 +57,18 @@ class Movie < ActiveRecord::Base
     return group_country
   end
 
+  def directors_fullnames
+    names = directors.map { |director| director.fullname }
+    joint_names = ''
+    if directors.count == 1
+      joint_names = names.first
+    elsif directors.count == 2
+      joint_names =  names.join(' and ')
+    elsif directors.count > 2
+      last_name = names.pop
+      joint_names = names.join(', ') + ' and ' + last_name
+    end
+    joint_names
+  end
+
 end
