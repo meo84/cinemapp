@@ -45,29 +45,6 @@ RSpec.describe Movie, type: :model do
         end
       end
     end
-
-    describe '#directors_fullnames' do
-      context 'When the movie has only one director' do
-        it 'returns the fullname of the director' do
-          @movie = FactoryGirl.create :movie_with_directors, director_count: 1
-          expect(@movie.directors_fullnames).to eq 'Mike Nichols'
-        end
-      end
-
-      context 'When the movie has 2 directors' do
-        it 'returns the fullnames of the directors separated by "and"' do
-          @movie = FactoryGirl.create :movie_with_directors, director_count: 2
-          expect(@movie.directors_fullnames).to eq 'Mike Nichols and Mike Nichols'
-        end
-      end
-
-      context 'When the movie has more than 2 directors' do
-        it 'returns the fullnames of the directors separated by commas' do
-          @movie = FactoryGirl.create :movie_with_directors, director_count: 3
-          expect(@movie.directors_fullnames).to eq 'Mike Nichols, Mike Nichols and Mike Nichols'
-        end
-      end
-    end
   end
 
 end

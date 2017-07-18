@@ -4,7 +4,7 @@
   </h2>
   <div class='movie__details'>
     <img class='img--vignette' src=<%= @movie.poster_url %> alt='Movie Poster'>
-    <span>by <%= @movie.directors_fullnames %></span>
+    <span>by <%= concatenate_links(@movie.directors) %></span>
     <i><%= @movie.last_event_turnout %> participants</i>
   </div>
   <p><%= link_to '<< Back to all movies', movies_path %></p>
