@@ -1,16 +1,19 @@
-<div class="card__back top-border">
-  <div class="back__row">
+<div class='card__back top-border'>
+  <div class='back__row'>
     <h3>The films with the most participants</h3>
   </div>
-  <div class="back__row">
+  <div class='back__row'>
     <% @movies_podium.each do |movie| %>
-      <div class="center padding">
-        <img class="img--vignette" src="<%= movie.poster_url %>"/>
-        <figcaption class="back__text"><%= movie.title %>,<br><%= movie.events.last.attendees_nb %> filmbuffs</figcaption>
+      <div class='movie__details'>
+        <%= link_to movie_path(movie), class: 'discrete-link' do %>
+          <img class='img--vignette' src="<%= movie.poster_url %>" alt='Movie Poster'/>
+        <% end %>
+        <span><%= movie.title %></span>
+        <span class='subtitle'><%= movie.events.last.attendees_nb %> filmbuffs</span>
       </div>
     <% end %>
   </div>
-  <div class="back__row">
-    <p class="back__text"><%= link_to 'View all films', movies_path %></p>
+  <div class='back__row'>
+    <p><%= link_to 'View all films', movies_path %></p>
   </div>
 </div>
